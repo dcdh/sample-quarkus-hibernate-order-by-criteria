@@ -1,4 +1,4 @@
-# sample-quarkus-hibernate-oracle-criteria
+# sample-quarkus-hibernate-criteria
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 

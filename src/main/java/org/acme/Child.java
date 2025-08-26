@@ -9,4 +9,6 @@ public class Child {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "CHILD_ID")
     private Long id;
+
+    private String name;
 }

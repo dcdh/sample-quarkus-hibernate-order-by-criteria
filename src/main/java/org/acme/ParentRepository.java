@@ -6,7 +6,6 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
-import jakarta.persistence.criteria.Join;
 import jakarta.persistence.criteria.Root;
 
 import java.util.List;
@@ -21,11 +20,10 @@ public class ParentRepository {
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<Parent> cq = cb.createQuery(Parent.class);
         Root<Parent> root = cq.from(Parent.class);
-        Join<Parent, Child> childJoin = root.join("child");
-        cq.distinct(true);
-        cq.orderBy(cb.asc(childJoin.get("id")));
+        root.fetch("child");
+        cq.select(root).distinct(true);
+        cq.orderBy(cb.desc(root.get("child").get("name")));
         TypedQuery<Parent> query = em.createQuery(cq);
-        List<Parent> resultList = query.getResultList();
-        return resultList;
+        return query.getResultList();
     }
 }

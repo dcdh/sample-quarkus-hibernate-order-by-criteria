@@ -8,7 +8,7 @@ public class Child {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "CHILD_ID")
-    private Long id;
+    Long id;
 
-    private String name;
+    String name;
 }

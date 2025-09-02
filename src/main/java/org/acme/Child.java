@@ -11,4 +11,12 @@ public class Child {
     Long id;
 
     String name;
+
+    @Override
+    public String toString() {
+        return "Child{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

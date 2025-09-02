@@ -61,5 +61,6 @@ class ParentTest {
     void shouldQueryParentOrderByChildId() {
         final List<Parent> parents = parentRepository.queryParentOrderByChildId();
         Assertions.assertFalse(parents.isEmpty());
+        System.out.println(parents);
     }
 }

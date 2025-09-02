@@ -18,6 +18,7 @@ public class ParentRepository {
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<Parent> cq = cb.createQuery(Parent.class);
         Root<Parent> root = cq.from(Parent.class);
+        root.fetch("child", JoinType.LEFT);
         Join<Parent, Child> child = root.join("child", JoinType.LEFT);
         cq.select(root).distinct(true);
         cq.orderBy(cb.desc(child.get("name")));
